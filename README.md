@@ -39,7 +39,7 @@ I would like to accept a request to rent out my space.
 
 ###Nights for which a space has already been booked should not be available for users to book that space.
 As a user,
-So I dont ask to double book,
+So I can see when a space is available,
 I would like to see when i cant book.
 
 ###Until a user has confirmed a booking request, that space can still be booked for that night.
