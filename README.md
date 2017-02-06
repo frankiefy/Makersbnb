@@ -87,4 +87,15 @@ A space will stay available till booking confirmed.
 CRITERIA:
 - booking is created when request confirmed
 
+USER STORY 11
+As a user,
+so i can choose where to book,
+i want to see all listings.
+CRITERIA:
+- listing page shows a list of spaces
+- 
+
 PROJECT ESTIMATION: 15 hours
+
+MVP: User stories 4, 11,
+A user can detail a space and see available spaces
