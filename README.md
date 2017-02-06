@@ -73,3 +73,14 @@ So a space can still be booked,
 A space will stay available till booking confirmed.
 CRITERIA:
 - booking is created when request confirmed
+
+
+USER STORY 10   1 hour
+As a user,
+So I can access my account,
+I would like to be able to log in
+CRITERIA:
+- can only login if email exists
+- validate password on back-end only
+- both password and email are required fields
+- email validation on front-end and back-end
