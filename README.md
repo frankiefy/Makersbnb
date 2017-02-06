@@ -16,6 +16,16 @@ CRITERIA:
 - email of correct form
 - all fields required
 
+USER STORY 10   1 hour
+As a user,
+So I can access my account,
+I would like to be able to log in
+CRITERIA:
+- can only login if email exists
+- validate password on back-end only
+- both password and email are required fields
+- email validation on front-end and back-end
+
 USER STORY 4  1/2 hour
 As a user,
 So i can detail my space,
@@ -30,14 +40,12 @@ I would like to list a space.
 CRITERIA:
 - has owner, has a space and has available dates to add to database
 
-
 USER STORY 3  1 hour
 As a user,
 So i can rent out multiple spaces,
 I would like to list multiple spaces.
 CRITERIA:
 - a user can have multiple spaces, and listings
-
 
 USER STORY 5  1 hour
 As a user,
@@ -74,13 +82,4 @@ A space will stay available till booking confirmed.
 CRITERIA:
 - booking is created when request confirmed
 
-
-USER STORY 10   1 hour
-As a user,
-So I can access my account,
-I would like to be able to log in
-CRITERIA:
-- can only login if email exists
-- validate password on back-end only
-- both password and email are required fields
-- email validation on front-end and back-end
+PROJECT ESTIMATION: 15 hours
