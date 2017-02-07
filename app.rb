@@ -11,11 +11,11 @@ class Makersbnb < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
 
-  # helpers do
-  #   def current_user
-  #     @current_user ||= User.get(session[:user_id])
-  #   end
-  # end
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:email])
+    end
+  end
 
   get '/' do
     redirect 'listings'
@@ -37,11 +37,23 @@ class Makersbnb < Sinatra::Base
         # binding.pry
           "Problems with #{property}: #{message}"
       end
-      erb :'user/new' # can we test this??
+      erb :'user/new'
     end
   end
 
   get '/user/login' do
+    erb :'user/login'
+  end
+
+  post '/user/logging_in' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:email] = params[:email]
+      redirect 'listings'
+    else
+      flash.now[:errors] = ['The email or password is incorrect']
+      erb :'user/login'
+    end
   end
 
   get '/listings' do
