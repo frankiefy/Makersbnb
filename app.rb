@@ -18,7 +18,7 @@ class Makersbnb < Sinatra::Base
   end
 
   get '/' do
-    redirect 'listings'
+    redirect 'spaces'
   end
 
   get '/user/new' do
@@ -49,26 +49,26 @@ class Makersbnb < Sinatra::Base
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:email] = params[:email]
-      redirect 'listings'
+      redirect 'spaces'
     else
       flash.now[:errors] = ['The email or password is incorrect']
       erb :'user/login'
     end
   end
 
-  get '/listings' do
-    @listings = Listing.all
-    erb :'listings'
+  get '/spaces' do
+    @spaces = Space.all
+    erb :'space/spaces'
   end
 
-  get '/listings/new' do
-    erb :'new_listing'
+  get '/space/new' do
+    erb :'space/new'
   end
 
-  post '/listings' do
-    listing = Listing.new(name: params[:name], description: params[:description], price: params[:price])
-    listing.save
-    redirect '/listings'
+  post '/spaces' do
+    space = Space.new(name: params[:name], description: params[:description], price: params[:price])
+    space.save
+    redirect '/spaces'
   end
 
   # start the server if ruby file executed directly

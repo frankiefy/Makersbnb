@@ -1,4 +1,4 @@
-class Listing
+class Space
   include DataMapper::Resource
 
   # has n, :tags, through: Resource
