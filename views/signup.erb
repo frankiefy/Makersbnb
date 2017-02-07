@@ -4,7 +4,9 @@
 
 <body>
 <h1 id = "header">Please Sign up for MakersBnb</h1>
-
+<% if flash[:notice] %>
+  <div id='notice'><%= flash[:notice] %></div>
+<% end %>
 <div id="main">
   <form action="/user/signing_up" method="post">
 <table>
