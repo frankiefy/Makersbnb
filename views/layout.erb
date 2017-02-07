@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Makers BnB</title>
+    <link rel="stylesheet" type="text/css" href="/css/myStyles.css">
+  </head>
+
+  <body>
+
+  <% if flash[:notice] %>
+    <div id='notice'><%= flash[:notice] %></div>
+  <% end %>
+
+    <%= yield %>
+  </body>
+</html>
