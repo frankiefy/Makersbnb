@@ -16,6 +16,7 @@ group :test do
   gem 'capybara'
   gem 'rspec-sinatra'
   gem 'rspec'
+  gem 'pry'
 end
 
 # gem "rails"
