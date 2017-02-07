@@ -1,0 +1,14 @@
+<h1>Welcome to Makersbnb</h1>
+<h1>Here are the listings</h1>
+<ul id='listings'>
+  <% @listings.each do |listing| %>
+    <li>
+      id: <%= listing.id %>
+      Name: <%= listing.name %>
+      description:   <%= listing.description %>
+      Price:  <%= listing.price %>
+      <input type="button" value='view listing' >
+    </li>
+
+  <% end %>
+</ul>
