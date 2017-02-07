@@ -15,7 +15,6 @@ CRITERIA:
 - confirm password, back&front
 - email of correct form
 - all fields required
-PRIORITY: 
 
 USER STORY 10   1 hour
 As a user,
@@ -26,7 +25,6 @@ CRITERIA:
 - validate password on back-end only
 - both password and email are required fields
 - email validation on front-end and back-end
-PRIORITY: 
 
 USER STORY 4  1/2 hour
 As a user,
@@ -34,7 +32,6 @@ So i can detail my space,
 I would like to have descriptive options.
 CRITERIA:
 - a user can name, descirbe, price a space
-PRIORITY: 
 
 USER STORY 2  1 hour
 As a user,
@@ -42,7 +39,6 @@ So that i can rent out my space,
 I would like to list a space.
 CRITERIA:
 - has owner, has a space and has available dates to add to database
-PRIORITY: 
 
 USER STORY 3  1 hour
 As a user,
@@ -50,7 +46,6 @@ So i can rent out multiple spaces,
 I would like to list multiple spaces.
 CRITERIA:
 - a user can have multiple spaces, and listings
-PRIORITY: 
 
 USER STORY 5  1 hour
 As a user,
