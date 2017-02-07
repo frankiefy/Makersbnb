@@ -49,7 +49,7 @@ class Makersbnb < Sinatra::Base
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:email] = params[:email]
-      redirect 'spaces'
+      redirect '/spaces'
     else
       flash.now[:errors] = ['The email or password is incorrect']
       erb :'user/login'
