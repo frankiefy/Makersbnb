@@ -4,6 +4,6 @@ feature 'user log in' do
   scenario 'logging in user' do
     signup
     login
-    expect(page).to have_current_path('/listings')
+    expect(page).to have_current_path('/spaces')
   end
 end
