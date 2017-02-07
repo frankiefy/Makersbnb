@@ -2,6 +2,7 @@ ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
 require_relative 'data_mapper_setup'
 require 'sinatra/flash'
+require 'pry' if ENV["RACK_ENV"] == "development"
 
 class Makersbnb < Sinatra::Base
 
@@ -21,11 +22,23 @@ class Makersbnb < Sinatra::Base
   end
 
   get '/user/new' do
+     @user = User.new
     erb :'signup'
   end
 
   post '/user/signing_up' do
-    
+    @user = User.new(email: params[:email], password: params[:password],
+      password_confirmation: params[:password_confirmation])
+    if @user.save
+      session[:user_id] = @user.id
+      redirect to('/user/login')
+    else
+      flash.now[:notice] = @user.errors.map do | messages|
+        # binding.pry
+          "Problems with #{property}: #{message}"
+      end
+      erb :signup
+    end
   end
 
   get '/listings' do
