@@ -23,7 +23,7 @@ class Makersbnb < Sinatra::Base
 
   get '/user/new' do
      @user = User.new
-    erb :'signup'
+    erb :'user/new'
   end
 
   post '/user/signing_up' do
@@ -37,8 +37,11 @@ class Makersbnb < Sinatra::Base
         # binding.pry
           "Problems with #{property}: #{message}"
       end
-      erb :signup
+      erb :'user/new' # can we test this??
     end
+  end
+
+  get '/user/login' do
   end
 
   get '/listings' do
