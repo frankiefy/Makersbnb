@@ -4,9 +4,6 @@ source "https://rubygems.org"
 ruby '2.3.0'
 
 gem 'sinatra'
-gem 'rspec-sinatra'
-gem 'rspec'
-gem 'capybara'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'pg'
@@ -16,6 +13,9 @@ gem 'sinatra-flash'
 
 group :test do
   gem 'database_cleaner'
+  gem 'capybara'
+  gem 'rspec-sinatra'
+  gem 'rspec'
 end
 
 # gem "rails"

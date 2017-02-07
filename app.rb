@@ -20,6 +20,14 @@ class Makersbnb < Sinatra::Base
     redirect 'listings'
   end
 
+  get '/user/new' do
+    erb :'signup'
+  end
+
+  post '/user/signing_up' do
+    
+  end
+
   get '/listings' do
     @listings = Listing.all
     erb :'listings'
@@ -30,8 +38,8 @@ class Makersbnb < Sinatra::Base
   end
 
   post '/listings' do
-    link = Listing.new(name: params[:name], description: params[:description], price: params[:price])
-    link.save
+    listing = Listing.new(name: params[:name], description: params[:description], price: params[:price])
+    listing.save
     redirect '/listings'
   end
 
