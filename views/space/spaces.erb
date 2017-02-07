@@ -1,14 +1,12 @@
 <h1>Welcome to Makersbnb</h1>
-<h1>Here are the listings</h1>
-<ul id='listings'>
-  <% @listings.each do |listing| %>
-    <li>
-      id: <%= listing.id %>
-      Name: <%= listing.name %>
-      description:   <%= listing.description %>
-      Price:  <%= listing.price %>
-      <input type="button" value='view listing' >
-    </li>
-
+<h1>Here are the spaces</h1>
+<div id="spaces" style="border-style: solid;  padding: 25px; ">
+  <% @spaces.each do |space| %>
+    <div id="space" style="border-style: double; padding: 5px; border-radius: 5px;">
+      <div><h2><%= space.name %></h2>  <div style="text-align: right">Price per night:  £<%= space.price %></div></div>
+      <div>Description:  <%= space.description %></div>
+      <div style="text-align: right"><input type="button" value='view space'></div>
+    </div>
+    <p></p>
   <% end %>
-</ul>
+</div>
