@@ -1,0 +1,21 @@
+#header {
+  text-align: center;
+  margin-top: 50px;
+}
+
+#main {
+  width:450px;
+  margin:0 auto;
+  text-align: center;
+}
+
+
+#sign_up_button {
+  text-align: center;
+  width: 100px;
+  height: 300px;
+}
+
+body {
+  background-image: url('https://newevolutiondesigns.com/images/freebies/city-wallpaper-11.jpg');
+}
