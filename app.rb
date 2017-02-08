@@ -56,19 +56,22 @@ class Makersbnb < Sinatra::Base
     end
   end
 
-  get '/spaces' do
+  get '/space/list' do
+    # TODO get a user somehow
     @spaces = Space.all
-    erb :'space/spaces'
+    erb :'space/list'
   end
 
   get '/space/new' do
+    # TODO if current user doesn't exist send to login page
     erb :'space/new'
   end
 
-  post '/spaces' do
-    space = Space.new(name: params[:name], description: params[:description], price: params[:price])
-    space.save
-    redirect '/spaces'
+  post '/space/create' do
+    # TODO get a user somehow
+    space = Space.new(name: params[:name], description: params[:description], price: params[:price]) # TODO add all Space attributes
+    space.save # TODO  Needs a conditional guard
+    redirect '/space/list'
   end
 
   # start the server if ruby file executed directly
