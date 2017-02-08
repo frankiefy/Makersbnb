@@ -8,7 +8,7 @@ class Space
   property :id, Serial
   property :name, String, required: true
   property :description,  Text, length: 500
-  property :price, Float, required: true
+  property :price, Integer, required: true
   property :start_date, Date, required: true
   property :end_date, Date, required: true
 

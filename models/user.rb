@@ -4,6 +4,8 @@ require 'dm-validations'
 class User
   include DataMapper::Resource
 
+  has n, :spaces
+  
   property :id, Serial
   property :email, String, :required => true, :unique => true,
     :format => :email_address,

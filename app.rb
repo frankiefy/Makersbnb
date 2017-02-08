@@ -1,7 +1,11 @@
 ENV["RACK_ENV"] ||= "development"
+
 require 'sinatra/base'
-require_relative 'data_mapper_setup'
 require 'sinatra/flash'
+require_relative 'helpers'
+
+require_relative 'data_mapper_setup'
+
 require 'pry' if ENV["RACK_ENV"] == "development"
 
 class Makersbnb < Sinatra::Base
@@ -11,14 +15,10 @@ class Makersbnb < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
 
-  helpers do
-    def current_user
-      @current_user ||= User.get(session[:email])
-    end
-  end
+  helpers ApplicationHelper
 
   get '/' do
-    redirect 'spaces'
+    redirect '/user/login'
   end
 
   get '/user/new' do
@@ -30,13 +30,9 @@ class Makersbnb < Sinatra::Base
     @user = User.new(email: params[:email], password: params[:password],
       password_confirmation: params[:password_confirmation])
     if @user.save
-      session[:user_id] = @user.id
       redirect to('/user/login')
     else
-      flash.now[:notice] = @user.errors.map do | messages|
-        # binding.pry
-          "Problems with #{property}: #{message}"
-      end
+      flash.now[:notice] = @user.errors.map { | messages| "Some problems arised: #{message}" }
       erb :'user/new'
     end
   end
@@ -49,29 +45,39 @@ class Makersbnb < Sinatra::Base
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:email] = params[:email]
-      redirect '/spaces'
+      redirect '/space/list' ## CHANGE THIS TO OUR LANDING PAGE!!!!
     else
-      flash.now[:errors] = ['The email or password is incorrect']
+      flash.now[:notice] = 'The email or password is incorrect'
       erb :'user/login'
     end
   end
 
-  get '/space/list' do
-    # TODO get a user somehow
-    @spaces = Space.all
-    erb :'space/list'
-  end
-
   get '/space/new' do
-    # TODO if current user doesn't exist send to login page
+    check_user_existing
     erb :'space/new'
   end
 
   post '/space/create' do
-    # TODO get a user somehow
-    space = Space.new(name: params[:name], description: params[:description], price: params[:price]) # TODO add all Space attributes
-    space.save # TODO  Needs a conditional guard
-    redirect '/space/list'
+    check_user_existing
+    space = Space.new(user: current_user,
+                      name: params[:name],
+                      description: params[:description],
+                      price: params[:price],
+                      start_date: params[:start_date],
+                      end_date: params[:end_date])
+
+    if space.save
+      redirect '/space/list'
+    else
+      flash.now[:notice] = space.errors.map { | messages| "Some problems arised: #{message}" }
+      erb :'space/new'
+    end
+
+  end
+
+  get '/space/list' do
+    @spaces = Space.all
+    erb :'space/list'
   end
 
   # start the server if ruby file executed directly
