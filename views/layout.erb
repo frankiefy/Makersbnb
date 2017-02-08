@@ -2,14 +2,18 @@
 <html>
   <head>
     <title>Makers BnB</title>
+    <link href='http://assets.makersacademy.com/images/favicons/favicon-16x16.png' rel='icon' sizes='16x16' type='image/png'>
     <link rel="stylesheet" type="text/css" href="/css/myStyles.css">
   </head>
 
   <body>
     <h1>Makers BnB</h1>
-  <% if flash[:notice] %>
-    <div id='notice'><%= flash[:notice] %></div>
-  <% end %>
+    <% if current_user %>
+      <h2>Welcome, <%=current_user.email%></h2>
+    <% end %>
+    <% if flash[:notice] %>
+      <div id='notice'><%= flash[:notice] %></div>
+    <% end %>
 
     <%= yield %>
   </body>
