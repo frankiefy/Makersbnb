@@ -1,16 +1,27 @@
-<h1>Fill in this form to add a new listing</h1>
-<form action="/listings" method="post">
-  <label for="name">
-    name
-    <input type="text" name="name">
-  </label>
-  <label for="description">
-    description
-    <input type="text" name="description">
-  </label>
-  <label for="price">
-    price
-    <input type="text" name="price">
-  </label>
-    <input type="submit" value="Create Listing">
+<div id="main">
+<h1 id="header">Fill in this form to add a new space</h1>
+
+<form action="/space/create" method="post">
+  <table style="text-align: centre; padding-left: 80px;">
+    <tr>
+      <th><label for="name">NAME:</label></th>
+      <th><input type="text" name="name"></th>
+    </tr>
+    <tr>
+      <th><label for="end_date">AVAILABLE TO:</label></th>
+      <th><input type="date" name="end_date"></th>
+    </tr>
+    <tr>
+      <th><label for="start_date">AVAILABLE FROM:</label></th>
+      <th><input type="date" name="start_date"></th>
+    </tr>
+    <tr>
+      <th><label for="price">PRICE:</label></th>
+      <th><input type="text" name="price"></th>
+    </tr>
+  </table>
+  <label for="description" style="font-weight: bold;">DESCRIPTION:</label>
+  <textarea type="text" name="description" rows="5" cols="70"></textarea>
+  <input type="submit" value="Create Space">
 </form>
+</div>
