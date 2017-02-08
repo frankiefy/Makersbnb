@@ -4,7 +4,7 @@
   <% @spaces.each do |space| %>
     <div id="space" style="border-style: double; padding: 5px; border-radius: 5px;">
       <div><h2><%= space.name %></h2>  <div style="text-align: right">Price per night:  £<%= space.price %></div></div>
-      <div>Description:  <%= space.description %></div>
+      <div>Description:  <%= space.description %> Available dates: <%= space.start_date %> to <%= space.end_date %></div>
       <div style="text-align: right"><input type="button" value='view space'></div>
     </div>
     <p></p>
