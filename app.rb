@@ -13,12 +13,16 @@ class Makersbnb < Sinatra::Base
 
   helpers do
     def current_user
-      @current_user ||= User.get(session[:email])
+      @current_user ||= User.first(email: session[:email])
+    end
+
+    def check_user_existing
+      redirect '/' unless current_user
     end
   end
 
   get '/' do
-    redirect 'spaces'
+    redirect '/user/login'
   end
 
   get '/user/new' do
@@ -30,12 +34,10 @@ class Makersbnb < Sinatra::Base
     @user = User.new(email: params[:email], password: params[:password],
       password_confirmation: params[:password_confirmation])
     if @user.save
-      session[:user_id] = @user.id
       redirect to('/user/login')
     else
       flash.now[:notice] = @user.errors.map do | messages|
-        # binding.pry
-          "Problems with #{property}: #{message}"
+          "Some problems arised: #{message}"
       end
       erb :'user/new'
     end
@@ -49,17 +51,11 @@ class Makersbnb < Sinatra::Base
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:email] = params[:email]
-      redirect '/spaces'
+      redirect '/space/list'
     else
-      flash.now[:errors] = ['The email or password is incorrect']
+      flash.now[:notice] = ['The email or password is incorrect']
       erb :'user/login'
     end
-  end
-
-  get '/space/list' do
-    # TODO get a user somehow
-    @spaces = Space.all
-    erb :'space/list'
   end
 
   get '/space/new' do
@@ -68,10 +64,16 @@ class Makersbnb < Sinatra::Base
   end
 
   post '/space/create' do
+    check_user_existing
     # TODO get a user somehow
     space = Space.new(name: params[:name], description: params[:description], price: params[:price]) # TODO add all Space attributes
     space.save # TODO  Needs a conditional guard
     redirect '/space/list'
+  end
+
+  get '/space/list' do
+    @spaces = Space.all
+    erb :'space/list'
   end
 
   # start the server if ruby file executed directly
