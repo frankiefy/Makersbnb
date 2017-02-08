@@ -11,6 +11,7 @@ require 'pry' if ENV["RACK_ENV"] == "development"
 class Makersbnb < Sinatra::Base
 
  register Sinatra::Flash
+ use Rack::MethodOverride
 
   enable :sessions
   set :session_secret, 'super secret'
@@ -45,7 +46,7 @@ class Makersbnb < Sinatra::Base
     user = User.authenticate(params[:email], params[:password])
     if user
       session[:email] = params[:email]
-      redirect '/space/list' ## CHANGE THIS TO OUR LANDING PAGE!!!!
+      redirect '/space/list'
     else
       flash.now[:notice] = 'The email or password is incorrect'
       erb :'user/login'
@@ -78,6 +79,12 @@ class Makersbnb < Sinatra::Base
   get '/space/list' do
     @spaces = Space.all
     erb :'space/list'
+  end
+
+  delete '/user/logout' do
+    flash.keep[:notice] = "Goodbye #{current_user.email}!"
+    session[:email] = nil
+    redirect to '/user/login'
   end
 
   # start the server if ruby file executed directly

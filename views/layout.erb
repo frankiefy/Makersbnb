@@ -10,7 +10,17 @@
     <h1>Makers BnB</h1>
     <% if current_user %>
       <h2>Welcome, <%=current_user.email%></h2>
+      <form method='post' action='/user/logout'>
+        <input type='hidden' name='_method' value='delete'>
+        <input type='submit' value='Sign out'>
+      </form>
+    <% else %>
+      <div id="nouser">
+        <a href="/user/new"><button>Sign up</button></a><br>
+        <a href="/user/login"><button>Sign in</button></a><br>
+      </div>
     <% end %>
+    <a href="/space/list"><button>Listings</button></a>
     <% if flash[:notice] %>
       <div id='notice'><%= flash[:notice] %></div>
     <% end %>
