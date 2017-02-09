@@ -17,10 +17,21 @@
 }
 
 body {
-  background-image: url('https://newevolutiondesigns.com/images/freebies/city-wallpaper-11.jpg');
+  background: url('https://newevolutiondesigns.com/images/freebies/city-wallpaper-11.jpg');
   background-repeat: no-repeat;
+
+}
+
+footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: dimgrey;
+  text-align: center;
+  color: white;
 }
 
 #space {
-
+  background-color: #ccc;
 }
