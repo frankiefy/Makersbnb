@@ -8,7 +8,7 @@
       <div>Description:  <%= space.description %> Available dates: <%= space.start_date %> to <%= space.end_date %></div>
       <div style="text-align: right">
         <form action='view' method='post'>
-          <input value= '<%=space.id %>' name='space_id' >
+          <input type="hidden" value= '<%=space.id %>' name='space_id' >
           <input type="submit" value='view space'>
         </form>
       </div>
