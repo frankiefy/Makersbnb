@@ -1,0 +1,19 @@
+<div id="space" style="border-style: double; padding: 5px; border-radius: 5px;">
+  <div><h1>Request for <%= @request.space.name %></h1>
+    <div style="text-align: right">Price per night:  £<%= @request.space.price %>
+    </div>
+  </div>
+  <div>
+    <h3>
+      Description:  <%= @request.space.description %>
+    </h3>
+    <h3>
+      Requested date: <%= @request.date %>
+    </h3>
+  </div>
+  <div style="text-align: right">
+  </div>
+</div>
+<div>
+  <button>Request Booking</button>
+</div>

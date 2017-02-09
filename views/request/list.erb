@@ -1,0 +1,67 @@
+<h1>Requests</h1>
+
+<section>
+<div id="requests-made" style="border-style: solid;  padding: 25px; background-color: rgba(173,173,173,0.72); width: 40%; ">
+  <h2>Requests Made</h2>
+    <% @requests_made.each do |request| %>
+    <div class="request-made" style="border-style: double; padding: 5px; border-radius: 5px;">
+        <div>
+            <h2><%= request.space.name %></h2>
+            <div style="text-align: right">
+                Price per night: £<%= request.space.price %>
+            </div>
+        </div>
+        <div>
+            Description:
+            <%= request.space.description %>
+        </div style="margin-top: 10px;">
+          Requested date:
+          <%= request.date %>
+        <div>
+            Confirmation:
+            <%= request.confirmation %>
+        </div>
+        <div style="text-align: right">
+            <form action='view' method='post'>
+                <input type="hidden" value='<%=request.id %>' name='request_id'>
+                <input type="submit" value='view request'>
+            </form>
+        </div>
+    </div>
+    <p></p>
+    <% end %>
+</div>
+
+<div id="request-received" style="border-style: solid;  padding: 25px; margin-top: 5px; background-color: rgba(173,173,173,0.72); width: 40%;">
+  <h2>Requests Received</h2>
+    <% @requests_received.each do |request| %>
+    <div class="request_received" style="border-style: double; padding: 5px; border-radius: 5px;">
+        <div>
+            <h2><%= request.space.name %></h2>
+            <div style="text-align: right">
+                Price per night: £<%= request.space.price %>
+            </div>
+        </div>
+        <div>
+            Description:
+            <%= request.space.description %>
+        </div>
+        <div>
+          Requested date:
+          <%= request.date %>
+        </div>
+        <div>
+            Confirmation:
+            <%= request.confirmation %>
+        </div>
+        <div style="text-align: right">
+            <form action='view' method='post'>
+                <input type="hidden" value='<%=request.id %>' name='request_id'>
+                <input type="submit" value='view request'>
+            </form>
+        </div>
+    </div>
+    <p></p>
+    <% end %>
+</div>
+</section>
