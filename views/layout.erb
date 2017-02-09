@@ -16,11 +16,11 @@
       </form>
     <% else %>
       <div id="nouser">
-        <a href="/user/new"><button>Sign up</button></a><br>
-        <a href="/user/login"><button>Sign in</button></a><br>
+        <a href="/user/new" id="sign_up"><button>Sign up</button></a><br>
+        <a href="/user/login" id="sign_in"><button>Sign in</button></a><br>
       </div>
     <% end %>
-    <a href="/space/list"><button>Listings</button></a>
+    <a href="/space/list" id="listings"><button>Listings</button></a>
     <% if flash[:notice] %>
       <div id='notice'><%= flash[:notice] %></div>
     <% end %>
