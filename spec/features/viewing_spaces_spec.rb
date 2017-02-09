@@ -3,8 +3,9 @@ feature 'user can create a space' do
     signup
     login
     name = 'Flat 1'
-    create_space(name: name)
+    price = '100'
+    create_space(name: name, price: price)
     click_button 'view space'
-    expect(page).to have_content(name)
+    expect(page.text).to match(/#{name}.*#{price}/)
   end
 end
