@@ -6,6 +6,5 @@ feature 'user can create a space' do
     create_space(name: name)
     click_button 'view space'
     expect(page).to have_content(name)
-    # are we testing that the space has been showed really?
   end
 end
