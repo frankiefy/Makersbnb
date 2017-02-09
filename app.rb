@@ -70,7 +70,7 @@ class Makersbnb < Sinatra::Base
     if space.save
       redirect '/space/list'
     else
-      flash.now[:notice] = space.errors.map { | messages| "Some problems arised: #{message}" }
+      flash.now[:notice] = space.errors.map { | messages| "Some problems arised: #{messages}" }
       erb :'space/new'
     end
 
@@ -85,6 +85,11 @@ class Makersbnb < Sinatra::Base
     flash.keep[:notice] = "Goodbye #{current_user.email}!"
     session[:email] = nil
     redirect to '/user/login'
+  end
+
+  post '/space/view' do
+    @space = Space.get(params[:space_id])
+    erb :'space/view'
   end
 
   # start the server if ruby file executed directly
