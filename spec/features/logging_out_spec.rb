@@ -5,7 +5,7 @@ feature 'user log out' do
     email = 'test@example.com'
     signup(email: email)
     login(email: email)
-    click_button("Sign out")
+    logout
     expect(page).to have_content("Goodbye " + email)
     expect(page).to have_current_path('/user/login') # this is temporarily, it probably can be directed to /
 
