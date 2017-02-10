@@ -13,8 +13,8 @@ describe Request do
     name: "Flat 1",
     user: renter,
     price: 30,
-    start_date: described_class.string_to_date_format('21/07/2017'),
-    end_date: described_class.string_to_date_format('28/07/2017')
+    start_date: Date.strptime("21/07/2017", "%d/%m/%Y"),
+    end_date: Date.strptime("28/07/2017", "%d/%m/%Y")
   )}
   let(:booking_date){Date.strptime("21/02/2017", "%d/%m/%Y")}
 
@@ -22,21 +22,21 @@ describe Request do
     expect{described_class.create(
     requester: rentee,
     space: space,
-    date: Date.strptime("21/07/2017", "%d/%m/%Y"))}.not_to raise_error
+    request_date: Date.strptime("21/07/2017", "%d/%m/%Y"))}.not_to raise_error
   end
 
   it 'raises an error when a new request is created with a date outside of the available range' do
     expect{described_class.create(
     requester: rentee,
     space: space,
-    date: Date.strptime("29/07/2017", "%d/%m/%Y"))}.to raise_error
+    request_date: Date.strptime("29/07/2017", "%d/%m/%Y"))}.to raise_error('Cannot create request: requested date outside available range')
   end
 
   it 'stores date, requester and space' do
     new_request = described_class.create(
     requester: rentee,
     space: space,
-    date: Date.strptime("21/07/2017", "%d/%m/%Y"))
+    request_date: Date.strptime("21/07/2017", "%d/%m/%Y"))
     expect(new_request.requester.email).to eq(rentee.email)
     expect(new_request.date).to eq(Date.strptime("21/07/2017", "%d/%m/%Y"))
     expect(new_request.space.name).to eq(space.name)
