@@ -1,7 +1,7 @@
 <h1>Requests</h1>
 
 <section>
-<div id="requests-made" style="border-style: solid;  padding: 25px; background-color: rgba(173,173,173,0.72); width: 40%; ">
+<div id="requests-made" style="border-style: solid;  padding: 25px; background-color: rgba(255,255,255,0.72); width: 40%; ">
   <h2>Requests Made</h2>
     <% @requests_made.each do |request| %>
     <div class="request-made" style="border-style: double; padding: 5px; border-radius: 5px;">
@@ -16,7 +16,7 @@
             <%= request.space.description %>
         </div style="margin-top: 10px;">
           Requested date:
-          <%= request.date %>
+          <%= correct_date_format(request.date) %>
         <div>
             Confirmation:
             <%= request.confirmation %>
@@ -32,7 +32,7 @@
     <% end %>
 </div>
 
-<div id="request-received" style="border-style: solid;  padding: 25px; margin-top: 5px; background-color: rgba(173,173,173,0.72); width: 40%;">
+<div id="request-received" style="border-style: solid;  padding: 25px; margin-top: 5px; background-color: rgba(255,255,255,0.72); width: 40%;">
   <h2>Requests Received</h2>
     <% @requests_received.each do |request| %>
     <div class="request_received" style="border-style: double; padding: 5px; border-radius: 5px;">
@@ -48,7 +48,7 @@
         </div>
         <div>
           Requested date:
-          <%= request.date %>
+          <%= correct_date_format(request.date) %>
         </div>
         <div>
             Confirmation:

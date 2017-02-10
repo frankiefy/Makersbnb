@@ -1,9 +1,9 @@
 
-<h1>Here are the spaces</h1>
+<h1 style="text-align: center;">Available Listings</h1>
 
 <div id="spaces" class="container" style=" padding: 25px; ">
     <% @spaces.each do |space| %>
-    <div id="space" style="border-style: double; padding: 5px; border-radius: 5px; background-color: rgba(173,173,173,0.72);">
+    <div id="space" style="border-style: double; padding: 5px; border-radius: 5px; background-color: rgba(255,255,255,0.72);">
         <div>
             <h2><%= space.name.capitalize %></h2>
         </div>
@@ -18,8 +18,8 @@
             Available dates:
           </h3>
           <p>
-              From: <%= space.start_date.strftime('%d/%m/%Y') %><br />
-              To: <%= space.end_date.strftime('%d/%m/%Y') %>
+              From: <%= correct_date_format(space.start_date) %><br />
+              To: <%= correct_date_format(space.end_date) %>
           </p>
           <div style="text-align: right">
               <p>

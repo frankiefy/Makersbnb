@@ -68,7 +68,8 @@ body {
   font-size: 1.25em;
 }
 #notice {
-  margin: 5%;
+  margin: 10px;
+  text-align: center;
 }
 
 #heading-requests {
@@ -88,7 +89,7 @@ body {
   border-style: solid;
   border-radius: 10px;
   padding: 0.5em 25px 25px 25px;
-  background-color: rgba(173,173,173,0.72);
+  background-color: rgba(255,255,255,0.72);
   overflow-y: scroll;
   height: 41.5em;
   float:left;
@@ -113,7 +114,7 @@ body {
   border-style: solid;
   border-radius: 10px;
   padding: 0.5em 25px 25px 25px;
-  background-color: rgba(173,173,173,0.72);
+  background-color: rgba(255,255,255,0.72);
   overflow-y: scroll;
   height: 41.5em;
   float: right;
@@ -160,7 +161,7 @@ footer {
   border-style: solid;
   border-radius: 10px;
   padding: 0.5em 25px 25px 25px;
-  background-color: rgba(173,173,173,0.72);
+  background-color: rgba(255,255,255,0.72);
   overflow-y: scroll;
   height: 48em;
 }

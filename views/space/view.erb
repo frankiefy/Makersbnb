@@ -1,12 +1,13 @@
-<div id="space" style="border-style: double; padding: 5px; border-radius: 5px; background-color: rgba(173,173,173,0.72);">
+<div class="container" id="space" style="border-style: double; padding: 5px; border-radius: 5px; background-color: rgba(173,173,173,0.72);">
  <div><h2><%= @space.name %></h2>  <div style="text-align: right">Price per night:  £<%= @space.price %></div></div>
  <div>Description:  <%= @space.description %> </div>
- <div style="margin-top: 10px;">Available dates: <%= @space.start_date %> to <%= @space.end_date %></div>
-</div>
+ <div style="margin-top: 10px;">Available dates: <%= correct_date_format(@space.start_date) %> to <%= correct_date_format(@space.end_date) %></div>
+
 <div>
- <form action='/request/new' method="post">
+ <form action='/request/new' method="post" style="float: right;">
    <input type="hidden" value='<%=@space.id %>' name='space_id' >
    <input type="date" name="request_date" min='<%=@space.start_date%>' max='<%=@space.end_date%>'>
-   <input type="submit" name="submit" value="Request Booking">
+   <input class="btn buttons"type="submit" name="submit" value="Request Booking">
  </form>
+</div>
 </div>
