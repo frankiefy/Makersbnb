@@ -22,7 +22,7 @@ feature 'user can request to book a space' do
     fill_in 'request_date', with: date
     click_button 'Request Booking'
 
-    expect(page).to have_current_path('/requests')
+    expect(page).to have_current_path('/request/new')
     expect(page.text).to match(/#{flat_name2}.*Not confirmed.*#{date}/)
   end
 

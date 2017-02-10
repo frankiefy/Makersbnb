@@ -92,6 +92,17 @@ class Makersbnb < Sinatra::Base
     erb :'space/view'
   end
 
+  post '/request/new' do
+    new_request = Request.new(date: params[:request_date], space: Space.get(params[:space_id]))
+
+    if new_request.save
+      redirect '/request/view'
+    else
+      flash.now[:notice] = new_request.errors.map { | messages| "Some problems arised: #{messages}" }
+      erb :'space/view'
+    end
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
