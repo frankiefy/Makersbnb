@@ -6,4 +6,8 @@ module ApplicationHelper
   def check_user_existing
     redirect '/user/login' unless current_user
   end
+
+  def correct_date_format(date)
+    date.strftime('%d/%m/%Y')
+  end
 end
