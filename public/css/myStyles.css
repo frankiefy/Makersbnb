@@ -1,3 +1,132 @@
+body {
+  background: url('https://newevolutiondesigns.com/images/freebies/city-wallpaper-11.jpg');
+  background-repeat: no-repeat;
+  font-family: 'Sansita', sans-serif !important;
+
+}
+
+.navbar {
+  background-color: white !important;
+  font-family: 'Sansita', sans-serif !important;
+  color: #FE2E4B;
+  border: none !important;
+  box-shadow: 2px 3px 3px #222;
+}
+
+#user-email{
+  text-align: left;
+}
+
+#navbar ul li a {
+  font-family: 'Sansita', sans-serif !important;
+  color: #000;
+}
+#sign-out-nav {
+  border:none;
+  background: none;
+  font-family: 'Sansita', sans-serif !important;
+  color: #000;
+  margin-top: 0.595em;
+  margin-left: 0.8em;
+}
+
+#sign-out-nav:hover {
+  color: #A8BECE;
+}
+
+#navbar-signout ul li a {
+  font-family: 'Sansita', sans-serif !important;
+  color: #FE2E4B;
+}
+.navbar-nav .navbar-right{
+
+}
+
+#navbar ul li a:hover {
+  color: #A8BECE;
+}
+
+.nav-brand {
+  font-size: 2em;
+  font-family: 'Sansita', sans-serif !important;
+  color: #FE2E4B;
+  margin-left: 2.6em;
+}
+
+.nav-brand:active {
+  font-size: 2em;
+  font-family: 'Sansita', sans-serif !important;
+  color: #FE2E4B;
+}
+
+.nav-brand:hover {
+  text-decoration: none;
+  color: #DC0C29;
+}
+
+.navbar-nav {
+  font-size: 1.25em;
+}
+#notice {
+  margin: 10px;
+  text-align: center;
+}
+
+#heading-requests {
+  text-align: center;
+  margin-top: 2em;
+  font-size: 5em;
+  text-shadow: 3px 3px #999;
+}
+
+#three{
+  margin-top: 2em;
+  width: 100%;
+  padding: 0% 10% 0% 10%
+}
+
+#requests-made{
+  border-style: solid;
+  border-radius: 10px;
+  padding: 0.5em 25px 25px 25px;
+  background-color: rgba(255,255,255,0.72);
+  overflow-y: scroll;
+  height: 41.5em;
+  float:left;
+}
+
+.div-heading{
+  margin-top: 1px;
+}
+
+.space-name{
+  font-size: 2em;
+}
+
+.request-made{
+  margin-top: 2em;
+  border-style: double;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+#requests-received{
+  border-style: solid;
+  border-radius: 10px;
+  padding: 0.5em 25px 25px 25px;
+  background-color: rgba(255,255,255,0.72);
+  overflow-y: scroll;
+  height: 41.5em;
+  float: right;
+}
+
+.request-received{
+  margin-top: 2em;
+  border-style: double;
+  padding: 5px;
+  border-radius: 5px;
+}
+
 #header {
   text-align: center;
   margin-top: 50px;
@@ -16,22 +145,36 @@
   /*height: 300px;*/
 }
 
-body {
-  background: url('https://newevolutiondesigns.com/images/freebies/city-wallpaper-11.jpg');
-  background-repeat: no-repeat;
-
-}
 
 footer {
   position: absolute;
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: dimgrey;
+  background-color: white !important;
   text-align: center;
-  color: white;
+  color: #FE2E4B;
+  box-shadow: 10px 10px 5px 20px white;
 }
 
-#space {
-  background-color: #ccc;
+#spaces {
+  border-style: solid;
+  border-radius: 10px;
+  padding: 0.5em 25px 25px 25px;
+  background-color: rgba(255,255,255,0.72);
+  overflow-y: scroll;
+  height: 48em;
+}
+
+.buttons {
+    background-color: rgba(200,10,30,0); /* Green */
+    border-color: black !important;
+    border-radius: 5px !important;
+    color: black !important;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-family: 'Sansita', sans-serif !important;
+    outline: none;
 }

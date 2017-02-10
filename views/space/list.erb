@@ -1,18 +1,38 @@
-<a href="/space/new" id='new_listing'><button>New Listing</button></a>
-<h1>Here are the spaces</h1>
+<h1 style="text-align: center;">Available Listings</h1>
 
-<div id="spaces" style="border-style: solid;  padding: 25px; ">
-  <% @spaces.each do |space| %>
-    <div id="space" style="border-style: double; padding: 5px; border-radius: 5px; background-color: rgba(173,173,173,0.72);" >
-      <div><h2><%= space.name %></h2>  <div style="text-align: right">Price per night:  £<%= space.price %></div></div>
-      <div>Description:  <%= space.description %> Available dates: <%= space.start_date %> to <%= space.end_date %></div>
-      <div style="text-align: right">
-        <form action='view' method='post'>
-          <input type="hidden" value= '<%=space.id %>' name='space_id' >
-          <input type="submit" value='view space'>
-        </form>
-      </div>
+<div id="spaces" class="container" style=" padding: 25px; ">
+    <% @spaces.each do |space| %>
+    <div id="space" style="border-style: double; padding: 5px; border-radius: 5px; background-color: rgba(255,255,255,0.72);">
+        <div>
+            <h2><%= space.name.capitalize %></h2>
+        </div>
+        <div>
+          <h3>
+            Description:
+          </h3>
+          <p>
+              <%= space.description %>
+          </p>
+          <h3>
+            Available dates:
+          </h3>
+          <p>
+              From: <%= correct_date_format(space.start_date) %><br />
+              To: <%= correct_date_format(space.end_date) %>
+          </p>
+          <div style="text-align: right">
+              <p>
+                  Price per night: £<%= space.price %>
+              </p>
+          </div>
+        </div>
+        <div style="text-align: right">
+            <form action='view' method='post'>
+                <input type="hidden" value='<%=space.id %>' name='space_id'>
+                <input class="btn buttons" type="submit" value='view space'>
+            </form>
+        </div>
     </div>
     <p></p>
-  <% end %>
+    <% end %>
 </div>
