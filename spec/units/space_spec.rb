@@ -9,7 +9,7 @@ describe Space do
     name: "Flat 1",
     user: user,
     price: 30,
-    start_date: described_class.string_to_date_format('21/07/2017'),
-    end_date: described_class.string_to_date_format('28/07/2017'))}.not_to raise_error
+    start_date: Date.strptime("21/07/2017", "%d/%m/%Y"),
+    end_date: Date.strptime("28/07/2017", "%d/%m/%Y"))}.not_to raise_error
   end
 end

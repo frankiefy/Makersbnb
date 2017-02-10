@@ -22,8 +22,10 @@ feature 'user can request to book a space' do
     fill_in 'request_date', with: date
     click_button 'Request Booking'
 
-    expect(page).to have_current_path('/requests')
-    expect(page.text).to match(/#{flat_name2}.*Not confirmed.*#{date}/)
+    expect(page).to have_current_path('/request/view', only_path: true)
+    # expect(page.text).to match(/#{flat_name2}.*Not confirmed.*#{date}/)
+    expect(page.text).to match(/#{flat_name2}.*#{date}/)
+
   end
 
   scenario 'as a unlogged user' do

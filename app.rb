@@ -18,6 +18,7 @@ class Makersbnb < Sinatra::Base
 
   helpers ApplicationHelper
 
+
   get '/' do
     redirect '/user/login'
   end
@@ -90,6 +91,23 @@ class Makersbnb < Sinatra::Base
   post '/space/view' do
     @space = Space.get(params[:space_id])
     erb :'space/view'
+  end
+
+  post '/request/new' do
+    @space = Space.get(params[:space_id])
+    new_request = Request.new(date: params[:request_date], space: @space, requester: current_user)
+
+    if new_request.save
+      redirect "/request/view?request_id=#{new_request.id}"
+    else
+      flash.now[:notice] = new_request.errors.map { | messages| "Some problems arised: #{messages}" }
+      erb :'space/view'
+    end
+  end
+
+  get '/request/view' do
+    @new_request = Request.all(id: params[:request_id]).first
+    erb :'request/view'
   end
 
   # start the server if ruby file executed directly
